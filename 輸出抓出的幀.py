@@ -7,13 +7,15 @@ import glob
 
 
 model = YOLO("yolov8x-pose-p6.pt")
-frame = [2095, 3109, 3112, 3317, 3319, 3364, 4697, 4698]
 
-for i in range(len(frame)):
-    frame.insert(i, frame[i] - 1)
-    frame.pop(i + 1)
+# 輸入要輸出的幀(已先抓出至frame)
+fram_nums = list(range(219, 231))
 
-for i in frame:
+# for i in range(len(fram_nums)):
+#     fram_nums.insert(i, fram_nums[i] - 1)
+#     fram_nums.pop(i + 1)
+
+for i in fram_nums:
     results = model(
-        source=f"frame/dance1_{i}.jpg", show=True, conf=0.79, save=True, stream=False
+        source=f"frame/VID{i}.jpg", show=True, conf=0.79, save=True, stream=False
     )
