@@ -26,8 +26,8 @@ for result in results:
         smaller.append(i)
     else:
         keypoints = keypoints.reshape(2, 34)
-        if (keypoints[0, 1] < keypoints[1, 1]):
-            keypoints.reshape(68)
+        if (keypoints[0, 0] < keypoints[1, 0]):
+            keypoints = keypoints.reshape(68)
         else:
             arr1 = keypoints[0, :]
             arr2 = keypoints[1, :]
@@ -36,6 +36,6 @@ for result in results:
     i += 1
 
 dance1_df = pd.DataFrame(grade)
-dance1_df.to_csv("VID", index=None)
+dance1_df.to_csv("VID.csv", index=None)
 
 print("bigger:", bigger, "\nsmaller:", smaller)
