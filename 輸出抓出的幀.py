@@ -8,7 +8,7 @@ import glob
 
 model = YOLO("yolov8x-pose-p6.pt")
 
-# 輸入要輸出的幀(已先抓出至frame)
+# 輸入要輸出的幀(已先抓出至frame資料夾)
 fram_nums = list(range(219, 231))
 
 # for i in range(len(fram_nums)):
