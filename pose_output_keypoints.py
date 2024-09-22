@@ -14,6 +14,11 @@ grade = []
 bigger = []
 smaller = []
 i = 1
+
+# 因為我要偵測的人有兩個，一個人會偵測17個點，每個點會有x,y所以兩個人總共會有68個值
+# 而通常如果大於68個值表示可能模型把不是人的物體也偵測進去當一個人
+# 小於68的話表示少偵測一個人
+# 用i來表示第幾幀有偵測錯人數，記錄在bigger表示大於2人記錄在smaller表示小於2人
 for result in results:
     keypoints = result.keypoints.cpu().xy.numpy()
     if keypoints.size > 68:
